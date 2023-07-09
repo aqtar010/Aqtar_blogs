@@ -1,0 +1,8 @@
+.blog-tile-component{
+    .image-display-container{
+        object-fit: fill;
+        img{
+            aspect-ratio: 16/9;
+        }
+    }
+}
