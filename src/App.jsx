@@ -4,7 +4,7 @@ import Navbar from "./components/navbar.component/navbar.component";
 //import Home from "./components/home.component/home.component";
 //import About from "./components/about.component/about.component";
 //import Auth from "./components/authPage.component/auth.component";
-//import BlogPage from "./components/blogs.component/blogs.component";
+import BlogPage from "./components/blogs.component/blogs.component";
 import { useDispatch } from "react-redux";
 import { Suspense, lazy, useEffect } from "react";
 import {
@@ -22,9 +22,9 @@ function App() {
   const Auth = lazy(() =>
     import("./components/authPage.component/auth.component")
   );
-  const BlogPage = lazy(() =>
-    import("./components/blogs.component/blogs.component")
-  );
+  // const BlogPage = lazy(() =>
+  //   import("./components/blogs.component/blogs.component")
+  // );
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
