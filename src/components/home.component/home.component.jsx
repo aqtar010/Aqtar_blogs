@@ -6,7 +6,7 @@ const Home = () => {
   const [blogList, setBlogList] = useState([]);
   const [userInput, setUserInput] = useState("");
   const inputRef = useRef(null);
-  const handleUserInputFeild = (e) => {
+  const handleUserInputField = (e) => {
     setUserInput(e.target.value);
   };
 
@@ -43,7 +43,7 @@ const Home = () => {
           name="category"
           ref={inputRef}
           onChange={(e) => {
-            handleUserInputFeild(e);
+            handleUserInputField(e);
           }}
           value={userInput}
         ></input><br/>

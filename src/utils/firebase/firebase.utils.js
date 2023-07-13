@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import {
@@ -11,6 +12,7 @@ import {
   addDoc,
   where,
   deleteDoc,
+  updateDoc,
 } from "firebase/firestore";
 import {
   getAuth,
@@ -97,7 +99,15 @@ export const queryBlog = async (currentUserEmail) => {
 export const deleteBlog = async (refId) => {
   try {
     await deleteDoc(doc(db, "blogs", refId));
-    return true
+    return true;
+  } catch (err) {
+    console.log(err);
+  }
+};
+export const updateBlog = async (refId, updateData) => {
+  try {
+    const docRef = doc(db, "blogs", refId);
+    await updateDoc(docRef, updateData);
   } catch (err) {
     console.log(err);
   }

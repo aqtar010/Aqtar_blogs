@@ -21,7 +21,7 @@ const BlogPage = () => {
       };
       try {
         await createBlogDoc(blogDoc);
-        fetchData()
+        fetchData();
       } catch (error) {
         console.log(error);
       }
@@ -36,8 +36,11 @@ const BlogPage = () => {
     setCurrentUserBlogs(bloglist);
   }
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (currentUser) {
+      fetchData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser]);
   return (
     <Fragment>
       {currentUser ? (
@@ -64,7 +67,7 @@ const BlogPage = () => {
           return <UserBlogtile refetch={fetchData} key={index} elem={elem} />;
         })
       ) : (
-        <>user dont have blogs</>
+        <>user don&apost have blogs</>
       )}
     </Fragment>
   );
